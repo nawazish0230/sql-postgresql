@@ -1,0 +1,12 @@
+- as we can see in the both the case caption and photo tag ultimate goal is to tag user 
+and redirect to user details when we click on it.
+
+- If we know in both the tags we need to do the same thing and field would also be then
+go with (2nd)approach
+
+- we can go with 1st(final) approach if we need to query caption tags 10 time more
+more frequently than like table then better to go with 1st(final) approach of creating
+separate table
+
+- will the meaning of photo tags would have more option then 1st(final) approach is better
+

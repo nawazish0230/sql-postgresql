@@ -1,0 +1,27 @@
+as by hashtag seach is only at one place that too show only posts not comment
+
+-> can search for posts than contains hashtag - implies that hastags in the post
+caption are modeled in the db
+
+-> can't seach for comments or users with a hashtag - implies they are not modeled 
+(or we don't have to )
+
+that's why we are considering to create table for post hashtags only reset comment/user hashtag
+we are not worrying as those are not searchable from anywhere
+
+
+-> using hastag_post_2(ref-img), we might end up duplicating the same hashtag multiple times
+so to avoid performance degradation we will go with diff. hashtag table approach
+
+-> in hashtag_post_final & hashtag_final (ref-> img), we can save one table for hashtag
+so there would not be repetetion
+
+
+* In USERS table we are not storing the post count as well as follower count
+=>  as getting post & follower from db query is very simple
+=> and that would change most oftenly
+=> so this type of data can be calculated by running the simple query
+=> we call this 'derived data' we generally don't want to store derived data
+=> until there is huge performance benefit or running query to get these is very complex 
+
+

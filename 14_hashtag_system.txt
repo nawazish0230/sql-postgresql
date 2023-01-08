@@ -1,0 +1,8 @@
+https://app.dbdesigner.net/designer/schema/590376
+
+-> in this table we just need to store user_id (leader) 
+and follower_id(user who followed)
+
+-> we need to add check that same follower_id can't follow same user_id
+
+-> and we need to add check leader can't follow himself

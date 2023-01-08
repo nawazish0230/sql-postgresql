@@ -1,0 +1,28 @@
+There are 3 way we can create the like table
+
+1) polymorphic way (likes_polymorphic_2)
+In this way we need to keep one table for (like/post/any) and on the basis of type 
+we need to store value into it, one thing we need to keep in mind that content_id would
+NOT BE ANY FOREIGN KEY as it is dependent on key.
+So, we should avoid this approach as we cant save foreign key reference into it
+
+
+2) multiple like table (likes_post_3 || likes_comment_3)
+In this way we can save foreign key but we need to create different different tables
+for different likes thing (e.g for comments, for post, for story, for reels)
+So, it is hard to maintain multiple table for single (LIKE) thing, so we should avoid this approach
+
+
+3) likes_final_approach
+In this approach we can need to create multiple column for different entity ref img, 
+and we can use foreign key thing as well we dont need to create multiple table as well,
+One thing only we need to keep in mind that one user value can store
+LIKE OR COMMENT at once, so total value should be one using this logic
+CHECK (
+  COALESCE ((post_id)::BOOLEAN::INTEGER, 0)
+  COALESCE ((comment_id)::BOOLEAN::INTEGER, 0)
+) = 1
+
+
+
+kohalot810@kaftee.com
